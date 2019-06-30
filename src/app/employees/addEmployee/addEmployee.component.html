@@ -1,0 +1,175 @@
+<style>
+  .formTab {
+    width:70%;
+    padding-left: 15%;
+  }
+  .textsize{
+    font-size: 12px;
+  }
+  .textsty{
+    color:red;
+  }
+</style>
+
+<form [formGroup]="form" (submit)="onAddEmployee()">
+    <mat-toolbar>
+      <button mat-raised-button type="submit">
+        <mat-icon>add_circle</mat-icon>
+        Add
+      </button>
+    </mat-toolbar>
+  <mat-tab-group class="formTab">
+  <mat-tab label="General">
+        <div>
+          <input type="file" #imageUploader (change)="onImagePicked($event)" style="display:none">
+          <button mat-stroked-button type="button" (click)="imageUploader.click()" style="height:60px; width: 60px;">
+            <mat-icon>add_a_photo</mat-icon>
+          </button>
+        </div>
+        <div *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid" style="height:5rem;">
+          <img [src]="imagePreview" [alt]="form.value.lastName" style="height:100% ;">
+        </div>
+    <mat-form-field>
+      <input matInput placeholder="First Name" type="text" name="firstName" formControlName="firstName" />
+    </mat-form-field>
+     <br>
+    <mat-form-field>
+      <input matInput placeholder="Last Name" type="text" name="lastName" formControlName="lastName" />
+    </mat-form-field>
+     <br>
+    <mat-form-field>
+      <input matInput placeholder="Birth Date" type="date" name="birthDate" formControlName="birthDate" (change)="onSelectBD()"/>
+    </mat-form-field>
+    <br>
+    <mat-hint class="textsty" *ngIf="age < 18">
+      * Employee most be older than 18
+    </mat-hint>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Personal Email" type="email" name="personalEmail" formControlName="personalEmail" />
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Personal Mobile" type="number"  minlength="10" maxlength="10" name="personalMobile" formControlName="personalMobile" />
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Work Email" type="email" name="workEmail" formControlName="workEmail" />
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Work Phone" type="number" minlength="7" maxlength="10" name="workPhone" formControlName="workPhone" />
+    </mat-form-field>
+  </mat-tab>
+  <mat-tab label="Personal Information">
+      <mat-form-field>
+        <mat-label>Nationality</mat-label>
+        <mat-select name="nationality" formControlName="nationality">
+          <mat-option *ngFor="let nationality of nationalities" [value]="nationality">
+            {{nationality}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="Identification No" type="text" name="identificationNo" formControlName="identificationNo" />
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="Passport No" type="text" name="passportNo" formControlName="passportNo" />
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="Address" type="text" name="address" formControlName="address" />
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Gender</mat-label>
+        <mat-select name="gender" formControlName="gender">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Marital status</mat-label>
+        <mat-select name="maritalStatus" formControlName="maritalStatus">
+          <mat-option value="Married">Married</mat-option>
+          <mat-option value="Widowed">Widowed</mat-option>
+          <mat-option value="Divorced">Divorced</mat-option>
+          <mat-option value="Single">Single</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field *ngIf="form.value.maritalStatus === 'Married'">
+        <input matInput placeholder="Number of children" type="number" name="numOfChildren" formControlName="numOfChildren" />
+      </mat-form-field>
+  </mat-tab>
+  <mat-tab label="Job">
+      <mat-form-field>
+        <mat-label>Status</mat-label>
+        <mat-select name="status" formControlName="status">
+          <mat-option value="hired">Hired</mat-option>
+          <mat-option value="notHired">not hired</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+       <!-- <mat-form-field>
+          <mat-label>Job Position</mat-label>
+          <select matNativeControl name="jobPosition" formControlName="jobPosition" (change)="onSelectJob()">
+            <option *ngFor="let jobPosition of jobPositions" [value]="jobPosition.id"> {{jobPosition.jobPositionName}}
+            </option>
+            <mat-option><button class="departBut" mat-raised-button (click)="openDepartmentDialog()">
+                create department
+              </button></mat-option>
+          </select>
+        </mat-form-field>-->
+        <br>
+        <mat-label> Department:</mat-label>
+        <br>
+        <mat-label> Manager:</mat-label>
+        <br>
+        <mat-form-field>
+          <mat-label>Job Type</mat-label>
+          <mat-select name="jobType" formControlName="jobType">
+            <mat-option value="Full-Time">Full Time</mat-option>
+            <mat-option value="Part-Time">Part Time</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+           <input matInput placeholder="Salary" type="number" name="salary" formControlName="salary" />
+        </mat-form-field>
+       <!--<div *ngFor="let jobPosition of jobPositions">
+          <div *ngIf="jobPosition.id === selectedJob">
+            <mat-hint class="textsize">
+              * Salary must be between {{jobPosition.salaryFrom}} and {{jobPosition.salaryTo}}
+            </mat-hint>
+          </div>
+          </div>-->
+        <mat-form-field>
+          <input matInput placeholder="Starting Date" type="date" name="startedDate" formControlName="startedDate" />
+        </mat-form-field>
+  </mat-tab>
+  <mat-tab label="Education">
+    <mat-form-field>
+      <mat-label>Certificate Level</mat-label>
+      <mat-select name="certificateLevel" formControlName="certificateLevel">
+        <mat-option value="HighSchool">High School</mat-option>
+        <mat-option value="Diploma">Diploma</mat-option>
+        <mat-option value="Bachelor">Bachelor</mat-option>
+        <mat-option value="Master">Master</mat-option>
+        <mat-option value="Other">Other</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Fields of study" type="text" name="fieldsOfStudy" formControlName="fieldsOfStudy" />
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="School" type="text" name="school" formControlName="school" />
+    </mat-form-field>
+  </mat-tab>
+</mat-tab-group>
+</form>

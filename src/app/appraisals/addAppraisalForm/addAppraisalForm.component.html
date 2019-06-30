@@ -1,0 +1,28 @@
+<form [formGroup]="form" (submit)="onAddAppraisalForm()"  style="text-align:center">
+  <mat-form-field>
+    <input matInput placeholder="Appraisal From Name" type="text" name="appraisalFormName" formControlName="appraisalFormName"/>
+  </mat-form-field>
+  <br>
+  <div formArrayName="questions" *ngFor="let item of form.get('questions')['controls']; let i = index;">
+    <div [formGroupName]="i">
+      <mat-form-field>
+        <input matInput placeholder="Question" type="text" name="name" formControlName="name" />
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Question Type</mat-label>
+        <mat-select matNativeControl name="type" formControlName="type">
+          <mat-option value="1">Multiple Lines Text Box</mat-option>
+          <mat-option value="2">Single Line Text Box</mat-option>
+          <mat-option value="3">Numerical Value</mat-option>
+          <mat-option value="4">Multiple choice: only one answer</mat-option>
+          <mat-option value="5">Multiple choice: multiple answers allowed</mat-option>
+          <mat-option value="6">Matrix</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <hr>
+  </div>
+  <button mat-raised-button type="button" (click)="addQuestion()">Add question</button>
+  <button mat-raised-button type="submit">{{appraisalFormButton}}</button>
+</form>

@@ -1,0 +1,29 @@
+<style>
+  .a:hover .b {
+    display: block
+  }
+  .b {
+    display: none
+  }
+</style>
+    <mat-toolbar>
+      <button mat-raised-button type="submit">
+        <a [routerLink]="['/hr/addEmployee']" style="text-decoration: none; color:black">
+        Add
+        </a>
+      </button>
+    </mat-toolbar>
+<mat-grid-list cols="8" rowHeight="3:4">
+  <div *ngIf="employees.length > 0">
+    <mat-grid-tile *ngFor="let employee of employees">
+      <button mat-button style="height:90%; width:90%" class="a"><a [routerLink]="['/hr/editEmployee', employee.id]"
+          style="text-decoration: none;color:black">
+          <img [src]="employee.imagePath" [alt]="employee.lastName" style="height:80px; width:80px;"><br>
+          <span>{{employee.firstName}} {{employee.lastName}}</span>
+          <button mat-icon-button (click)="onDelete(employee.id)" class="b">
+            <mat-icon (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">{{ic}}</mat-icon>
+          </button>
+        </a></button>
+    </mat-grid-tile>
+  </div>
+</mat-grid-list>

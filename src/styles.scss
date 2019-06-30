@@ -1,0 +1,146 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$primary: mat-palette($mat-gray);
+$accent: mat-palette($mat-gray);
+$theme: mat-light-theme($primary, $accent);
+@include angular-material-theme($theme);
+
+
+//----------Red------------------------
+$primary_red: mat-palette($mat-red);
+$accent_red: mat-palette($mat-red);
+$theme_red: mat-light-theme($primary_red, $accent_red);
+.theme_red{
+@include angular-material-theme($theme_red);
+}
+
+//----------Pink------------------------
+$primary_pink: mat-palette($mat-pink);
+$accent_pink: mat-palette($mat-pink);
+$theme_pink: mat-light-theme($primary_pink, $accent_pink);
+.theme_pink{
+@include angular-material-theme($theme_pink);
+}
+
+//----------Purple------------------------
+$primary_purple: mat-palette($mat-purple);
+$accent_purple: mat-palette($mat-purple);
+$theme_purple: mat-light-theme($primary_purple, $accent_purple);
+.theme_purple{
+@include angular-material-theme($theme_purple);
+}
+
+//----------Deep Purple------------------------
+$primary_deep_purple: mat-palette($mat-deep-purple);
+$accent_deep_purple: mat-palette($mat-deep-purple);
+$theme_deep_purple: mat-light-theme($primary_deep_purple, $accent_deep_purple);
+.theme_deep_purple{
+@include angular-material-theme($theme_deep_purple);
+}
+//----------Indigo------------------------
+$primary_indigo: mat-palette($mat-indigo);
+$accent_indigo: mat-palette($mat-indigo);
+$theme_indigo: mat-light-theme($primary_indigo, $accent_indigo);
+.theme_indigo{
+@include angular-material-theme($theme_indigo);
+}
+//----------Blue------------------------
+$primary_blue: mat-palette($mat-blue);
+$accent_blue: mat-palette($mat-blue);
+$theme_blue: mat-light-theme($primary_blue, $accent_blue);
+.theme_blue{
+@include angular-material-theme($theme_blue);
+}
+//----------Light Blue------------------------
+$primary_light_blue: mat-palette($mat-light-blue);
+$accent_light_blue: mat-palette($mat-light-blue);
+$theme_light_blue: mat-light-theme($primary_light_blue, $accent_light_blue);
+.theme_light_blue{
+@include angular-material-theme($theme_light_blue);
+}
+//----------Cyan------------------------
+$primary_cyan: mat-palette($mat-cyan);
+$accent_cyan: mat-palette($mat-cyan);
+$theme_cyan: mat-light-theme($primary_cyan, $accent_cyan);
+.theme_cyan{
+@include angular-material-theme($theme_cyan);
+}
+//----------Teal------------------------
+$primary_teal: mat-palette($mat-teal);
+$accent_teal: mat-palette($mat-teal);
+$theme_teal: mat-light-theme($primary_teal, $accent_teal);
+.theme_teal{
+@include angular-material-theme($theme_teal);
+}
+//----------Green------------------------
+$primary_green: mat-palette($mat-green);
+$accent_green: mat-palette($mat-green);
+$theme_green: mat-light-theme($primary_green, $accent_green);
+.theme_green{
+@include angular-material-theme($theme_green);
+}
+//----------Light Green------------------------
+$primary_light_green: mat-palette($mat-light-green);
+$accent_light_green: mat-palette($mat-light-green);
+$theme_light_green: mat-light-theme($primary_light_green, $accent_light_green);
+.theme_light_green{
+@include angular-material-theme($theme_light_green);
+}
+//----------Lime------------------------
+$primary_lime: mat-palette($mat-lime);
+$accent_lime: mat-palette($mat-lime);
+$theme_lime: mat-light-theme($primary_lime, $accent_lime);
+.theme_lime{
+@include angular-material-theme($theme_lime);
+}
+//----------Yellow------------------------
+$primary_yellow: mat-palette($mat-yellow);
+$accent_yellow: mat-palette($mat-yellow);
+$theme_yellow: mat-light-theme($primary_yellow, $accent_yellow);
+.theme_yellow{
+@include angular-material-theme($theme_yellow);
+}
+//----------Amber------------------------
+$primary_amber: mat-palette($mat-amber);
+$accent_amber: mat-palette($mat-amber);
+$theme_amber: mat-light-theme($primary_amber, $accent_amber);
+.theme_amber{
+@include angular-material-theme($theme_amber);
+}
+//----------Orange------------------------
+$primary_orange: mat-palette($mat-orange);
+$accent_orange: mat-palette($mat-orange);
+$theme_orange: mat-light-theme($primary_orange, $accent_orange);
+.theme_orange{
+@include angular-material-theme($theme_orange);
+}
+//----------Deep Orange------------------------
+$primary_deep_orange: mat-palette($mat-deep-orange);
+$accent_deep_orange: mat-palette($mat-deep-orange);
+$theme_deep_orange: mat-light-theme($primary_deep_orange, $accent_deep_orange);
+.theme_deep_orange{
+@include angular-material-theme($theme_deep_orange);
+}
+//----------Brown------------------------
+$primary_brown: mat-palette($mat-brown);
+$accent_brown: mat-palette($mat-brown);
+$theme_brown: mat-light-theme($primary_brown, $accent_brown);
+.theme_brown{
+@include angular-material-theme($theme_brown);
+}
+//----------Gray------------------------
+$primary_gray: mat-palette($mat-gray);
+$accent_gray: mat-palette($mat-gray);
+$theme_gray: mat-light-theme($primary_gray, $accent_gray);
+.theme_gray{
+@include angular-material-theme($theme_gray);
+}
+//----------Blue Gray------------------------
+$primary_blue_gray: mat-palette($mat-blue-gray);
+$accent_blue_gray: mat-palette($mat-blue-gray);
+$theme_blue_gray: mat-light-theme($primary_blue_gray, $accent_blue_gray);
+.theme_blue_gray{
+@include angular-material-theme($theme_blue_gray);
+}
+

@@ -1,0 +1,24 @@
+<form (submit)="onAddAppraisal(appraisalForm)" #appraisalForm="ngForm" style="text-align:center">
+
+  <mat-form-field>
+    <mat-label>Employee Name</mat-label>
+    <mat-select matNativeControl name="employee" [ngModel]="employee" #employee="ngModel">
+      <mat-option *ngFor="let employee of employees" [value]="employee.id"> {{employee.firstName }}{{employee.lastName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Appraisal Form</mat-label>
+    <mat-select matNativeControl name="form" [ngModel]="form" #form="ngModel">
+      <mat-option *ngFor="let form of forms" [value]="form.id"> {{form.appraisalFormName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Appraisal Deadline" type="date" name="deadline" [ngModel]="deadline" #deadline="ngModel"/>
+  </mat-form-field>
+  <br><br>
+  <button mat-raised-button type="submit">{{appraisalButton}}</button>
+</form>
