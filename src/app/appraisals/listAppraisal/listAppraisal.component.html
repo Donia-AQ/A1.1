@@ -78,7 +78,7 @@
     class="example-list" (cdkDropListDropped)="drop($event)">
     <div class="example-box" *ngFor="let item of toStartArr" cdkDrag>
       <button mat-stroked-button style="height:90%; width:90%" class="a" (click)="openAppraisalDialog2(item.id)">
-        {{item.employee}}
+        {{item.employee.firstName}}
         <button mat-icon-button (click)="onDelete(item.id)" class="b">
           <mat-icon (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">{{ic}}</mat-icon>
         </button>
@@ -94,7 +94,7 @@
     class="example-list" (cdkDropListDropped)="drop($event)">
     <div class="example-box" *ngFor="let item of appraisalSentArr" cdkDrag>
       <button mat-stroked-button style="height:90%; width:90%" class="a" (click)="openAppraisalDialog2(item.id)">
-        {{item.employee}}
+        {{item.employee.firstName}}
         <button mat-icon-button (click)="onDelete(item.id)" class="b">
           <mat-icon (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">{{ic}}</mat-icon>
         </button>
@@ -110,7 +110,7 @@
     class="example-list" (cdkDropListDropped)="drop($event)">
     <div class="example-box" *ngFor="let item of doneArr" cdkDrag>
       <button mat-stroked-button style="height:90%; width:90%" class="a" (click)="openAppraisalDialog2(item.id)">
-        {{item.employee}}
+        {{item.employee.firstName}}
         <button mat-icon-button (click)="onDelete(item.id)" class="b">
           <mat-icon (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">{{ic}}</mat-icon>
         </button>
@@ -126,7 +126,7 @@
     class="example-list" (cdkDropListDropped)="drop($event)">
     <div class="example-box" *ngFor="let item of cancelledArr" cdkDrag>
       <button mat-stroked-button style="height:90%; width:90%" class="a" (click)="openAppraisalDialog2(item.id)">
-        {{item.employee}}
+        {{item.employee.firstName}}
         <button mat-icon-button (click)="onDelete(item.id)" class="b">
           <mat-icon (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">{{ic}}</mat-icon>
         </button>

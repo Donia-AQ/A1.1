@@ -31,7 +31,9 @@ router.put("/:id", (req, res, next) => {
 });
 
 router.get("", (req, res, next) => {
-  Appraisal.find().then(documents => {
+  Appraisal.find()
+  .populate('employee')
+  .then(documents => {
     res.status(200).json({
       message: 'Appraisal fetched successfully!',
       appraisals: documents
